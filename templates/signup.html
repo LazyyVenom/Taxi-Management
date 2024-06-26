@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taxi Manager - Sign Up</title>
+</head>
+<body>
+    <h1>Sign Up</h1>
+    <form action="{% url 'register' %}" method="post">
+        <label for="type">Type:</label>
+        <select id="type" name="type">
+            <option value="user">User</option>
+            <option value="driver">Driver</option>
+        </select><br><br>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state" required><br><br>
+
+        <label for="pincode">Pincode:</label>
+        <input type="text" id="pincode" name="pincode" required><br><br>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <input type="submit" value="Sign Up">
+    </form>
+    <p>Already a user? <a href="login">Login</a></p>
+</body>
+</html>
