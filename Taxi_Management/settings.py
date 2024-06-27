@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Taxi_Management',
 ]
+
+AUTH_USER_MODEL = 'Taxi_Management.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

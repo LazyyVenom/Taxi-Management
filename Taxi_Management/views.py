@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.http import request
+from .models import CustomUser,LiveLocation,Booking
 
 def index(request):
     return render(request,"index.html")
@@ -33,6 +34,17 @@ def register(request):
         pincode = request.POST['pincode']
         username = request.POST['username']
         password = request.POST['password']
+
+        CustomUser.objects.create(
+            username=username,
+            password=password,
+            pincode=pincode,
+            name=name,
+            state=state,
+            type=type_of_user
+            )
+        
+        print("DONE")
 
         return render(request,'signup.html')
 

@@ -11,6 +11,20 @@ class CustomUser(AbstractUser):
     )
     type = models.CharField(max_length=6, choices=USER_TYPES)
 
+    groups = models.ManyToManyField(
+        'auth.Group',
+        related_name='customuser_set',  # Add unique related_name
+        blank=True,
+        help_text='The groups this user belongs to.',
+        verbose_name='groups',
+    )
+    user_permissions = models.ManyToManyField(
+        'auth.Permission',
+        related_name='customuser_set',  # Add unique related_name
+        blank=True,
+        help_text='Specific permissions for this user.',
+        verbose_name='user permissions',
+    )
 
 class LiveLocation(models.Model):
     user = models.ForeignKey(CustomUser, related_name='user_locations', on_delete=models.CASCADE)
